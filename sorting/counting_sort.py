@@ -13,11 +13,11 @@
 #TODO: negative values
 #TODO: Hashing
 
-def counting_sort(a):
-    k = max(a) + 1
+def counting_sort(a, key=lambda x: x):
+    k = max(map(key, a)) + 1
     pos = [0] * k
     for el in a:
-        pos[el] += 1
+        pos[key(el)] += 1
 
     s = 0
     for i in range(k):
@@ -25,8 +25,8 @@ def counting_sort(a):
     
     out = [0] * len(a)
     for i in range(len(a)):
-        out[pos[a[i]]] = a[i]
-        pos[a[i]] += 1
+        out[pos[key(a[i])]] = a[i]
+        pos[key(a[i])] += 1
     return out
 
 if __name__ == '__main__':
