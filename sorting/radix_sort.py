@@ -8,7 +8,7 @@ def radix_sort(a):
     base = 10
     out = []
     for i in range(d):
-        out = counting_sort(a, key=lambda x: x % 10**(i+1))
+        out = counting_sort(a, key=lambda x: x % base**(i+1))
     return out
 
 
